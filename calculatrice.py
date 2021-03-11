@@ -16,12 +16,12 @@ def division(n1, n2):
 
 
 if __name__  == "__main__":
+    operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
     os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
     print("||||||||||| Calculatrice ||||||||||||")
-    print("Liste des opérateurs disponibles : | + | - | / | * |")
+    print(operator_free)
     print("\n")
     # Ajouter un choix à l'utilisateur permettant de choisir le nombre de chiffres qu'il y aura dans son calcul ?
-    operator_free=("Les opérateurs disponibles sont : | + | - | / | * |")
     num1=int(input("Saisissez un nombre : "))
     num2=int(input("Saisissez un deuxième nombre : "))
     operator=str(input("Saisissez l'opérateur : "))
