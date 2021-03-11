@@ -24,7 +24,7 @@ if __name__  == "__main__":
     operator_free=("Les opérateurs disponibles sont : | + | - | / | * |")
     num1=int(input("Saisissez un nombre : "))
     num2=int(input("Saisissez un deuxième nombre : "))
-    operator=input("Saisissez l'opérateur : ")
+    operator=str(input("Saisissez l'opérateur : "))
     if operator=='+':
         print(plus(num1, num2))
     elif operator=='-':
@@ -34,7 +34,23 @@ if __name__  == "__main__":
     elif operator=='/':
         while (num2 == 0):
             num2=int(input("Division par 0 impossible, saisissez un autre nombre : "))
-            print(division(num1, num2)
+            print(division(num1, num2))
     else:
-        while (operator !='+' | operator !='-' | operator !='*' | operator !='/'):
-            operator=str(input("L'opérateur saisie n'est pas correcte, veuillez réessayez : "+"\n"+operator_free))
+        while True:
+            if not operator in ['+','-','*','/']:
+                operator=str(input(operator_free+"\n"+"L'opérateur saisie n'est pas correcte, veuillez réessayez : "))
+            else:
+                if operator=='+':
+                    print(plus(num1,num2))
+                    break
+                elif operator=='-':
+                    print(minus(num1,num2))
+                    break
+                elif operator=='*':
+                    print(multiplication(num1,num2))
+                    break
+                elif operator=='/':
+                    print(division(num1,num2))
+                    break
+else:
+    print("yoyo")
