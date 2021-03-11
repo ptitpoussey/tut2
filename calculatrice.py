@@ -31,13 +31,10 @@ if __name__  == "__main__":
         print(minus(num1, num2))
     elif operator=='*':
         print(multiplication(num1, num2))
-    #elif operator=='/':
-        #while (num2 == 0):
-            #num2=int(input("Division par 0 impossible, saisissez un autre nombre : "))
-            #print(division(num1, num2)
+    elif operator=='/':
+        while (num2 == 0):
+            num2=int(input("Division par 0 impossible, saisissez un autre nombre : "))
+            print(division(num1, num2)
     else:
-        while (operator !='+' || operator !='-' || operator !='*' || operator !='/'):
-            operator=input("L'opérateur saisie n'est pas correcte, veuillez réessayez : "+"\n"+operator_free)
-
-else:
-    pass
+        while (operator !='+' | operator !='-' | operator !='*' | operator !='/'):
+            operator=str(input("L'opérateur saisie n'est pas correcte, veuillez réessayez : "+"\n"+operator_free))
