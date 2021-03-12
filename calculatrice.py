@@ -1,4 +1,5 @@
 #!/bin/python3
+from math import sqrt # Permet d'utiliser la fonction math sqrt
 import os # Permet d'utiliser des commandes linux
 
 
@@ -14,14 +15,13 @@ def multiplication(n1, n2):
 def division(n1, n2):
     return (n1/n2)
 
+def sqroot(n1):
+    return (sqrt(n1))
 
-if __name__  == "__main__":
-    operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
-    os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
-    print("||||||||||| Calculatrice ||||||||||||")
-    print(operator_free)
-    print("\n")
-    # Ajouter un choix à l'utilisateur permettant de choisir le nombre de chiffres qu'il y aura dans son calcul ?
+def squarenbr(n1):
+    return (n1*n1)
+
+def firstoption():
     num1=int(input("Saisissez un nombre : "))
     num2=int(input("Saisissez un deuxième nombre : "))
     operator=str(input("Saisissez l'opérateur : "))
@@ -52,5 +52,48 @@ if __name__  == "__main__":
                 elif operator=='/':
                     print(division(num1,num2))
                     break
-else:
-    print("yoyo")
+
+def secondoption():
+    num1=int(input("Saisissez un nombre : "))
+    operator=str(input("Saisissez la fonction mathématique que vous souhaitez utiliser : "))
+    if operator=='sqrt':
+        print(sqroot(num1))
+    elif operator=='**':
+        print(squarenbr(num1))
+    else:
+        while True:
+            if not operator in ['sqrt', '**']:
+                operator=str(input(operator_math+"\n"+"La fonction mathématique choisis est incorrecte, veuillez réessayez : "))
+            else:
+                if operator=='sqrt':
+                    sqroot()
+                    break
+                elif operator=='**':
+                    squarenbr()
+                    break
+
+def main():
+    operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
+    operator_math=("Les fonctions mathématiques disponibles sont : | sqrt | ** | ")
+    os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
+    print("||||||||||| Calculatrice ||||||||||||")
+    print("\n")
+    choix=input("Que voulez-vous faire :"
+        "\n1- "+operator_free+
+        "\n2- "+operator_math+"\n")
+    if choix=='1':
+        firstoption()
+    elif choix=='2':
+        secondoption()
+    else:
+        while True:
+            if not choix in ['1','2']:
+                choix=input("Que voulez-vous faire :"
+                    "\n1- "+operator_free+
+                    "\n2- "+operator_math+"\n")
+            else:
+                if choix=='1':
+                    firstoption()
+                elif choix=='2':
+                    secondoption()
+main()
