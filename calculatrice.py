@@ -21,16 +21,16 @@ def sqroot(n1):
 def squarenbr(n1):
     return (n1*n1)
 
-def firstoption():
+def firstoption(operator_free):
     num1=int(input("Saisissez un nombre : "))
     num2=int(input("Saisissez un deuxième nombre : "))
     operator=str(input("Saisissez l'opérateur : "))
     if operator=='+':
-        print(plus(num1, num2))
+        print(str(plus(num1, num2))+"\n")
     elif operator=='-':
-        print(minus(num1, num2))
+        print(str(minus(num1, num2))+"\n")
     elif operator=='*':
-        print(multiplication(num1, num2))
+        print(str(multiplication(num1, num2))+"\n")
     elif operator=='/':
         while (num2 == 0):
             num2=int(input("Division par 0 impossible, saisissez un autre nombre : "))
@@ -41,35 +41,35 @@ def firstoption():
                 operator=str(input(operator_free+"\n"+"L'opérateur saisie n'est pas correcte, veuillez réessayez : "))
             else:
                 if operator=='+':
-                    print(plus(num1,num2))
+                    print(str(plus(num1,num2))+"\n")
                     break
                 elif operator=='-':
-                    print(minus(num1,num2))
+                    print(str(minus(num1,num2))+"\n")
                     break
                 elif operator=='*':
-                    print(multiplication(num1,num2))
+                    print(str(multiplication(num1,num2))+"\n")
                     break
                 elif operator=='/':
-                    print(division(num1,num2))
+                    print(str(division(num1,num2))+"\n")
                     break
 
-def secondoption():
+def secondoption(operator_math):
     num1=int(input("Saisissez un nombre : "))
     operator=str(input("Saisissez la fonction mathématique que vous souhaitez utiliser : "))
     if operator=='sqrt':
-        print(sqroot(num1))
+        print(str(sqroot(num1))+"\n")
     elif operator=='**':
-        print(squarenbr(num1))
+        print(str(squarenbr(num1))+"\n")
     else:
         while True:
             if not operator in ['sqrt', '**']:
                 operator=str(input(operator_math+"\n"+"La fonction mathématique choisis est incorrecte, veuillez réessayez : "))
             else:
                 if operator=='sqrt':
-                    sqroot()
+                    print(str(sqroot(num1))+"\n")
                     break
                 elif operator=='**':
-                    squarenbr()
+                    print(str(squarenbr(num1))+"\n")
                     break
 
 def main():
@@ -78,22 +78,29 @@ def main():
     os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
     print("||||||||||| Calculatrice ||||||||||||")
     print("\n")
-    choix=input("Que voulez-vous faire :"
-        "\n1- "+operator_free+
-        "\n2- "+operator_math+"\n")
-    if choix=='1':
-        firstoption()
-    elif choix=='2':
-        secondoption()
-    else:
-        while True:
-            if not choix in ['1','2']:
-                choix=input("Que voulez-vous faire :"
-                    "\n1- "+operator_free+
-                    "\n2- "+operator_math+"\n")
-            else:
-                if choix=='1':
-                    firstoption()
-                elif choix=='2':
-                    secondoption()
+    while True:
+        choix=input("Que voulez-vous faire :"
+            "\n1- "+operator_free+
+            "\n2- "+operator_math+"\n"
+            "3- Quitter.\n")
+        if choix=='1':
+            firstoption(operator_free)
+        elif choix=='2':
+            secondoption(operator_math)
+        elif choix=='3':
+            break
+        else:
+            while True:
+                if not choix in ['1','2']:
+                    choix=input("Que voulez-vous faire :"
+                        "\n1- "+operator_free+
+                        "\n2- "+operator_math+"\n"
+                        "3- Quitter."+"\n")
+                else:
+                    if choix=='1':
+                        firstoption(operator_free)
+                    elif choix=='2':
+                        secondoption(operator_math)
+                    elif choix=='3':
+                        break
 main()
