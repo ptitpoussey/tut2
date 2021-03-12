@@ -1,5 +1,6 @@
 #!/bin/python3
 import math # Permet d'utiliser des fonctions de math
+from math import sqrt
 import os # Permet d'utiliser des commandes linux
 
 
@@ -22,7 +23,7 @@ def squarenbr(n1):
     return (n1*n1)
 
 def cosinus(n1):
-    return (math.acos(n1))
+    return (math.cos(n1))
 
 def sinus(n1):
     return (math.sin(n1))
@@ -40,7 +41,7 @@ def firstoption(operator_free):
     elif operator=='/':
         while (num2 == 0):
             num2=int(input("Division par 0 impossible, saisissez un autre nombre : "))
-            print(division(num1, num2))
+        print(str(division(num1,num2))+"\n")
     else:
         while True:
             if not operator in ['+','-','*','/']:
@@ -72,7 +73,7 @@ def secondoption(operator_math):
         print(str(sinus(num1))+"\n")
     else:
         while True:
-            if not operator in ['sqrt', '**']:
+            if not operator in ['sqrt', '**', 'cos', 'sin']:
                 operator=str(input(operator_math+"\n"+"La fonction mathématique choisis est incorrecte, veuillez réessayez : "))
             else:
                 if operator=='sqrt':
@@ -87,6 +88,7 @@ def secondoption(operator_math):
                 elif operator=='sin':
                     print(str(sinus(num1))+"\n")
 
+
 def main():
     operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
     operator_math=("Les fonctions mathématiques disponibles sont : | sqrt | ** | cos | sin | ")
@@ -96,8 +98,8 @@ def main():
     while True:
         choix=input("Que voulez-vous faire :"
             "\n1- "+operator_free+
-            "\n2- "+operator_math+"\n"
-            "3- Quitter.\n")
+            "\n2- "+operator_math+
+            "\n3- Quitter.\n")
         if choix=='1':
             firstoption(operator_free)
         elif choix=='2':
