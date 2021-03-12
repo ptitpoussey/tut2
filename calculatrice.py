@@ -1,5 +1,5 @@
 #!/bin/python3
-from math import sqrt # Permet d'utiliser la fonction math sqrt
+import math # Permet d'utiliser des fonctions de math
 import os # Permet d'utiliser des commandes linux
 
 
@@ -20,6 +20,12 @@ def sqroot(n1):
 
 def squarenbr(n1):
     return (n1*n1)
+
+def cosinus(n1):
+    return (math.acos(n1))
+
+def sinus(n1):
+    return (math.sin(n1))
 
 def firstoption(operator_free):
     num1=int(input("Saisissez un nombre : "))
@@ -60,6 +66,10 @@ def secondoption(operator_math):
         print(str(sqroot(num1))+"\n")
     elif operator=='**':
         print(str(squarenbr(num1))+"\n")
+    elif operator=='cos':
+        print(str(cosinus(num1))+"\n")
+    elif operator=='sin':
+        print(str(sinus(num1))+"\n")
     else:
         while True:
             if not operator in ['sqrt', '**']:
@@ -71,10 +81,15 @@ def secondoption(operator_math):
                 elif operator=='**':
                     print(str(squarenbr(num1))+"\n")
                     break
+                elif operator=='cos':
+                    print(str(cosinus(num1))+"\n")
+                    break
+                elif operator=='sin':
+                    print(str(sinus(num1))+"\n")
 
 def main():
     operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
-    operator_math=("Les fonctions mathématiques disponibles sont : | sqrt | ** | ")
+    operator_math=("Les fonctions mathématiques disponibles sont : | sqrt | ** | cos | sin | ")
     os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
     print("||||||||||| Calculatrice ||||||||||||")
     print("\n")
