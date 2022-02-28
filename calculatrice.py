@@ -1,7 +1,7 @@
 #!/bin/python3
-import math # Permet d'utiliser des fonctions de math
+import math
 from math import sqrt
-import os # Permet d'utiliser des commandes linux
+import os
 
 
 def plus(n1, n2):
@@ -92,7 +92,7 @@ def secondoption(operator_math):
 def main():
     operator_free=("Les opérateurs disponibles sont : | + | - | / | * | ")
     operator_math=("Les fonctions mathématiques disponibles sont : | sqrt | ** | cos | sin | ")
-    os.system('cls' if os.name == 'nt' else 'clear') #Utilise la commande cls si on est sous windows sinon clear
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("||||||||||| Calculatrice ||||||||||||")
     print("\n")
     while True:
